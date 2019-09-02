@@ -8,7 +8,7 @@ body {
 }
 
 .content{
-  width: 70vw;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -38,11 +38,12 @@ body {
   font-size: 2em;
 }
 
+
 .repository {
   border-bottom-left-radius: 0.4em;
   border-bottom-right-radius: 0.4em;
   width: 15em;
-  min-height: 12em;
+  min-height: 11em;
   background-color: #ffffed;
   border: 2px solid #00a5e3;
   border-top: 5px solid #00a5e3;
@@ -51,8 +52,20 @@ body {
   box-shadow: 0.1em 0.1em 0.2em #00a5e3;
   margin: 0.2em;
   position: relative;
-
 }
+
+@media screen and (max-width: 600px) {
+  .repository {
+    width: 12em;
+    min-height: 11em;
+  }
+  .repository h3 {
+    text-align: left;
+    font-size: 1.1em;
+    overflow: paged-y;
+  }
+}
+
 
 .repository:hover {
   transform: scale(0.97, 0.97);
@@ -66,6 +79,7 @@ body {
 }
 
 .repository h3 {
+  margin-top: 0.5em;
   color: #00323f;
 }
 
@@ -110,6 +124,7 @@ a:link, a:visited {
 .contactIcons img:hover {
   transform: scale(1.1, 1.1);
   -webkit-transform: scale(1.1, 1.1);
+  filter: brightness(0.5) sepia(1) saturate(10000%) hue-rotate(90deg);
 }
 
 .contactIcons {
@@ -122,8 +137,8 @@ a:link, a:visited {
 .siteCard {
   text-align: center;
   border: 2px solid #49a372;
-  width: 70vw;
-  max-width: 600px;
+  width: 80vw;
+  max-width: 500px;
   margin: 2em auto 2em;
   border-top-right-radius: 0.5em;
   border-top-left-radius: 0.5em;
@@ -138,8 +153,8 @@ a:link, a:visited {
 }
 
 .siteCard img {
-  width: 70vw;
-  max-width: 600px;
+  width: 80vw;
+  max-width: 500px;
   position: relative;
   padding: 0;
   vertical-align: bottom;
