@@ -8,7 +8,7 @@ import background from './_img/background.jpg';
 
 
 function App() {
-  return (
+     return (
     <div className="App">
         <AboutMe />
         <div className={"content"}>

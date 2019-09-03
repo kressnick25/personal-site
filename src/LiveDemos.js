@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
-import qld_crimes from './_img/screens/qld_crimes_db.png'
+import qld_crimes from './_img/screens/qld_crimes_db.png';
+import adnat from './_img/screens/adnat.png';
+import trailseeker from './_img/screens/trail_seeker.png';
 
 export function LiveDemos(props) {
 
@@ -18,6 +20,19 @@ export function LiveDemos(props) {
                 img={qld_crimes}
                 link={"https://kressnick25.github.io/cab230/"}
             />
+            <SiteCard
+                name={'Tanda React Challenge'}
+                details={[]}
+                img={adnat}
+                link={"https://kressnick25.github.io/TandaHQ-React-Challenge/"}
+            />
+            <SiteCard
+                name={'TrailSeeker'}
+                details={[]}
+                img={trailseeker}
+                link={"https://kresslab.org/trailseeker"}
+            />
+
         </div>
     )
 }

@@ -1,28 +1,23 @@
 import React, {useEffect, useState} from 'react';
 import ContactMe from "./ContactMe";
+import styled, { keyframes } from 'styled-components';
+import { fadeInUp } from 'react-animations';
 
 export function AboutMe (props) {
-    const [user, setUser] = useState(false);
-
-    useEffect(() => {
-        fetch("https://api.github.com/users/kressnick25")
-            .then((res) => {
-                if (res.ok) return res.json();
-                throw new Error("failed to fetch");
-            })
-            .then(res => setUser(res))
-            .catch(err => console.log(err.message));
-    }, []);
+    // animations
+    const fadeAnimation = keyframes`${fadeInUp}`;
+    const FadeDiv = styled.div`
+      animation: 1s ${fadeAnimation};
+    `;
 
     return (
+        <FadeDiv>
         <div className={'Me'}>
             <div className={"meContent"}>
-                <h1>Nick Kress</h1>
-                {user ?
-                    <p>{user.bio} at {user.company}</p> :
-                    <p>Loading</p> // TODO loader here
-                }
 
+                <h1>Nick Kress</h1>
+
+                <Details/>
                 <hr/>
                 <ContactMe/>
             </div>
@@ -33,7 +28,25 @@ export function AboutMe (props) {
                 />
             </svg>
         </div>
+        </FadeDiv>
     )
+}
+
+function Details (props) {
+    const [user, setUser] = useState(false);
+    // get user data
+    useEffect(() => {
+        fetch("https://api.github.com/users/kressnick25")
+            .then((res) => {
+                if (res.ok) return res.json();
+                throw new Error("failed to fetch");
+            })
+            .then(res => setUser(res))
+            .catch(err => console.log(err.message));
+    }, []);
+
+    if (!user) return <p>Loading...</p>
+    return <p>{user.bio} at {user.company}</p>
 }
 
 export default AboutMe;
