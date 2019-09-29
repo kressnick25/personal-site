@@ -17,7 +17,6 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postbuild": "react-snap",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
@@ -41,5 +40,5 @@
     "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   },
-  "homepage": "http://kressnick25.github.io/personal-site"
+  "homepage": "https://nkress.dev"
 }
