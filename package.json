@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "electron-is-dev": "^1.1.0",
+    "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-animations": "^1.0.0",
     "react-dom": "^16.9.0",
@@ -16,7 +17,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postbuild": "react-snap"
+    "postbuild": "react-snap",
+    "predeploy": "yarn build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -38,5 +41,5 @@
     "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   },
-  "main": "public/electron.js"
+  "homepage": "http://kressnick25.github.io/personal-site"
 }
