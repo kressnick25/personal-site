@@ -77,7 +77,7 @@ function SiteCard(props){
 
     return (
         <Container>
-        <Card src={props.img}/>
+        <Card src={props.img} alt={props.name + 'site demo screenshot image'}/>
         <a href={props.link}>
 
             <Name>{props.name}</Name>
