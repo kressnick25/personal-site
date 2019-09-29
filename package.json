@@ -8,6 +8,7 @@
     "react-animations": "^1.0.0",
     "react-dom": "^16.9.0",
     "react-scripts": "3.1.1",
+    "react-snap": "^1.23.0",
     "styled-components": "^4.3.2"
   },
   "scripts": {
@@ -15,7 +16,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "electron-dev": "concurrently \"BROWSER=none yarn start\" \"wait-on http://localhost:3000 && electron .\""
+    "postbuild": "react-snap"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,7 +35,6 @@
   },
   "devDependencies": {
     "concurrently": "^4.1.2",
-    "electron": "^6.0.7",
     "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   },

@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React from 'react';
 import qld_crimes from './_img/screens/qld_crimes_db.png';
 import adnat from './_img/screens/adnat.png';
 import trailseeker from './_img/screens/trail_seeker.png';
+import styled from 'styled-components';
 
 export function LiveDemos(props) {
-
     return (
         <div className={'liveDemos'}>
             <h2>Live demos of my work</h2>
@@ -38,18 +38,51 @@ export function LiveDemos(props) {
 }
 
 function SiteCard(props){
-    //const [view, setView] = useState(false);
+    const Container = styled.div`
+        position: relative;
+        text-align: center;
+        transition: 0.3s;
+        &:hover {
+            transform: translateY(-0.4em);
+        }
+    `;
+    const Card = styled.img`
+        text-align: center;
+        border: 2px solid #49a372;
+        width: 80vw;
+        max-width: 500px;
+        max-height: 300px;
+        margin: 2em auto 2em;
+        border-top-right-radius: 0.5em;
+        border-top-left-radius: 0.5em;
+        
+        justify-content: center;
+        align-items: center;
+        display: flex;
+    `;
+
+    const Name = styled.h2`
+        color: #fffff5;
+        background-color: rgba(205,115,43,0.85);
+        border-radius: 1em;
+        padding: 20px 20px 20px;
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -30%);
+        &:hover {
+            background-color: rgba(205,115,43,0.98);
+        }
+    `;
+
     return (
+        <Container>
+        <Card src={props.img}/>
         <a href={props.link}>
-            <div className={'siteCard'}>
-                <h3>{props.name}</h3>
-                <img src={props.img} alt={props.name + ' site screenshot'} />
-                {/*
-                <ul>
-                    {props.details.map(item => <li>{item}</li>)}
-                </ul>*/}
-            </div>
-        </a>
+
+            <Name>{props.name}</Name>
+            </a>
+        </Container>
     )
 };
 
