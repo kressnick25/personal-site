@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 import AboutMe from './AboutMe';
 import {WorkingOn} from "./WorkingOn";
-import LiveDemos from "./LiveDemos";
+//import LiveDemos from "./LiveDemos";
 
 
 function App() {
@@ -11,7 +11,7 @@ function App() {
         <AboutMe />
         <div className={"content"}>
                 <WorkingOn />
-                <LiveDemos/>
+	     	{/*<LiveDemos/>*/}
             </div>
     </div>
   );
