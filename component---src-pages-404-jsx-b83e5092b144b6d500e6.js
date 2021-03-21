@@ -1,0 +1,2 @@
+(self.webpackChunkclient=self.webpackChunkclient||[]).push([[256],{1657:function(e,n,t){"use strict";t.r(n);var u=t(7294),c=t.n(u);n.default=function(){return c().createElement("h1",null,"404 - Page Not Found")}}}]);
+//# sourceMappingURL=component---src-pages-404-jsx-b83e5092b144b6d500e6.js.map
