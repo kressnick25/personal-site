@@ -4,10 +4,12 @@
   "private": true,
   "dependencies": {
     "gatsby": "^3.1.1",
+    "gatsby-plugin-react-helmet": "^4.1.0",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-animations": "^1.0.0",
     "react-dom": "^16.9.0",
+    "react-helmet": "^6.1.0",
     "react-scripts": "3.1.1",
     "react-snap": "^1.23.0",
     "styled-components": "^4.3.2"
