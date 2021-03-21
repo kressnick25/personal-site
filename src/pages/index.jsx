@@ -9,9 +9,15 @@ import WorkingOn from "../components/WorkingOn";
 function App({data}) {
      return (
     <div className="App">
-        <Helmet>
+        <Helmet
+          htmlAttributes={{
+            lang: 'en',
+          }}
+        >
           <meta charSet="utf-8" />
+          <meta name="description" content={data.site.siteMetadata.description} />
           <title>{data.site.siteMetadata.title}</title>
+
         </Helmet>
         <AboutMe />
         <div className={"content"}>
@@ -26,7 +32,8 @@ export const query = graphql`
   query {
     site {
       siteMetadata {
-        title
+        title,
+        description
       }
     }
   }
