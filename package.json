@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "electron-is-dev": "^1.1.0",
+    "gatsby": "^3.1.1",
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
     "react-animations": "^1.0.0",
@@ -14,14 +14,15 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "dev": "gatsby develop -p 9000 -o",
+    "build": "gatsby build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "predeploy": "yarn build",
     "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
-    "extends": "react-app"
+    "extends": "gatsby"
   },
   "browserslist": {
     "production": [
@@ -36,8 +37,8 @@
     ]
   },
   "devDependencies": {
+    "babel-preset-gatsby": "^1.1.0",
     "concurrently": "^4.1.2",
-    "electron-builder": "^21.2.0",
     "wait-on": "^3.3.0"
   },
   "homepage": "https://nkress.dev"

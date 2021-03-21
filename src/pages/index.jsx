@@ -1,7 +1,7 @@
 import React from 'react';
-import './App.css';
-import AboutMe from './AboutMe';
-import {WorkingOn} from "./WorkingOn";
+import '../styles/global.css';
+import AboutMe from '../components/AboutMe';
+import WorkingOn from "../components/WorkingOn";
 //import LiveDemos from "./LiveDemos";
 
 

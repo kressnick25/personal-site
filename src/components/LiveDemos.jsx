@@ -1,7 +1,7 @@
 import React from 'react';
-import qld_crimes from './_img/screens/qld_crimes_db.png';
-import adnat from './_img/screens/adnat.png';
-import trailseeker from './_img/screens/trail_seeker.png';
+import qld_crimes from '../images/screens/qld_crimes_db.png';
+import adnat from '../images/screens/adnat.png';
+import trailseeker from '../images/screens/trail_seeker.png';
 import styled from 'styled-components';
 
 export function LiveDemos(props) {

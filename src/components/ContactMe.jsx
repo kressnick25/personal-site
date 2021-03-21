@@ -1,7 +1,7 @@
 import React from 'react';
-import github from './_img/icons/github.png'
-import linkedin from './_img/icons/linkedin.png';
-import email from './_img/icons/gmail.png';
+import github from '../images/icons/github.png'
+import linkedin from '../images/icons/linkedin.png';
+import email from '../images/icons/gmail.png';
 export function ContactMe(props) {
     return (
         <div className={'contact'}>
