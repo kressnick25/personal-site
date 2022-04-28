@@ -9,7 +9,11 @@ export function WorkingOn(props) {
                 if (res.ok) return res.json();
                 throw new Error("failed to fetch");
             })
-            .then(res => setRepos(res))
+            .then(res => {
+                let filteredRepos = res.filter(repo => !repo.fork && !repo.archived); // no forked repos
+                let slicedFilteredRepos = filteredRepos.slice(0, 8); // limit to top 8
+                setRepos(slicedFilteredRepos);
+            })
             .catch(err => console.log(err.message));
     }, []);
 
