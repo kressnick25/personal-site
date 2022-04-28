@@ -36,12 +36,17 @@ export function WorkingOn(props) {
 }
 
 const Repository = (props) => {
+    let pushedAt = `updated ${props.pushed_at} days ago`;
+    if (props.pushed_at > 364) {
+        pushedAt = "updated a long time ago"
+    }
+    
     return (
         <a href={props.html_url}>
             <div className={'repository'}>
                 <h3>{props.name}</h3>
                 <p>{truncate(props.description, 150)}</p>
-                <p className={'updated'}><small>pushed {props.pushed_at} days ago</small></p>
+                <p className={'updated'}><small>{pushedAt}</small></p>
             </div>
         </a>
 
