@@ -1,0 +1,33 @@
+name: Check build
+on:
+  pull_request:
+
+jobs:
+  build:
+    concurrency: ci-${{ github.ref }}
+    
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - uses: fregante/setup-git-user@v1
+    
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        
+    - name: Install yarn
+      run: npm install --no-save yarn
+    
+    - name: Install dependencies
+      run: npx yarn install
+    
+    - name: Build
+      run: npx yarn build
