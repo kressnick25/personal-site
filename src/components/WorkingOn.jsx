@@ -4,7 +4,7 @@ export function WorkingOn(props) {
     const [repos, setRepos] = useState(false);
 
     useEffect(() => {
-        fetch("https://api.github.com/users/kressnick25/repos?sort=pushed&per_page=9")
+        fetch("https://api.github.com/users/kressnick25/repos?sort=pushed")
             .then((res) => {
                 if (res.ok) return res.json();
                 throw new Error("failed to fetch");
