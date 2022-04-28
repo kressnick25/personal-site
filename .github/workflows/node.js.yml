@@ -18,6 +18,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v3
       with:
@@ -25,13 +26,13 @@ jobs:
         cache: 'npm'
         
     - name: Install yarn
-    - run: npm install --no-save yarn
+      run: npm install --no-save yarn
     
     - name: Install dependencies
-    - run: npx yarn install
+      run: npx yarn install
     
     - name: Build
-    - run: npx yarn build
+      run: npx yarn build
     
     - name: Deploy to GH Pages
-    - run: npx gh-pages -d public
+      run: npx gh-pages -d public
