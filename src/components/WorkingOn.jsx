@@ -4,12 +4,16 @@ export function WorkingOn(props) {
     const [repos, setRepos] = useState(false);
 
     useEffect(() => {
-        fetch("https://api.github.com/users/kressnick25/repos?sort=pushed&per_page=8")
+        fetch("https://api.github.com/users/kressnick25/repos?sort=pushed")
             .then((res) => {
                 if (res.ok) return res.json();
                 throw new Error("failed to fetch");
             })
-            .then(res => setRepos(res))
+            .then(res => {
+                let filteredRepos = res.filter(repo => !repo.fork && !repo.archived); // no forked repos
+                let slicedFilteredRepos = filteredRepos.slice(0, 8); // limit to top 8
+                setRepos(slicedFilteredRepos);
+            })
             .catch(err => console.log(err.message));
     }, []);
 
