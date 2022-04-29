@@ -41,7 +41,10 @@ export function WorkingOn(props) {
 
 const Repository = (props) => {
     let pushedAt = `updated ${props.pushed_at} days ago`;
-    if (props.pushed_at > 364) {
+    if (props.pushed_at === 1) {
+        pushedAt = "updated a day ago"
+    }
+    else if (props.pushed_at > 364) {
         pushedAt = "updated a long time ago"
     }
     
