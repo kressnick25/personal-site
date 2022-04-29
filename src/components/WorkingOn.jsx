@@ -26,6 +26,7 @@ export function WorkingOn(props) {
                 {repos ?
                     repos.map(repo =>
                         <Repository
+                            key={repo.id}
                             name={repo.name}
                             description={repo.description}
                             pushed_at={calcDays(repo.pushed_at)}
