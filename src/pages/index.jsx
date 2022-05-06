@@ -17,6 +17,18 @@ function App({data}) {
           <meta charSet="utf-8" />
           <meta name="description" content={data.site.siteMetadata.description} />
           <title>{data.site.siteMetadata.title}</title>
+          
+          {/*  Global site tag (gtag.js) - Google Analytics */ }
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-EWKB8GPTPW"></script>
+          <script>
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments)}
+              gtag('js', new Date());
+
+              gtag('config', 'G-EWKB8GPTPW');
+            `}
+          </script>
 
         </Helmet>
         <AboutMe />
