@@ -1,8 +1,8 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
 import { graphql } from "gatsby"
-import AboutMe from '../components/AboutMe';
-import WorkingOn from "../components/WorkingOn";
+import { AboutMe } from 'components/about';
+import { WorkingOn } from 'components/workingOn';
 
 export interface SiteMetadata {
   title: string;

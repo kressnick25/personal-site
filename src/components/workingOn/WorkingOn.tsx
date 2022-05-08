@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import { truncate } from '../util/text';
+
+import { Repository } from './Repository'
 
 interface GithubRepo {
     id: string;
@@ -11,7 +12,7 @@ interface GithubRepo {
     pushed_at: string;
 }
 
-export function WorkingOn() {
+const WorkingOn = () => {
     const [repos, setRepos] = useState([] as Array<GithubRepo>);
 
     useEffect(() => {
@@ -50,34 +51,6 @@ export function WorkingOn() {
     )
 }
 
-interface RepositoryProps {
-    pushed_at: number,
-    html_url: string,
-    name: string,
-    description: string,
-}
-
-const Repository = (props: RepositoryProps) => {
-    let pushedAt = `updated ${props.pushed_at} days ago`;
-    if (props.pushed_at === 1) {
-        pushedAt = "updated a day ago"
-    }
-    else if (props.pushed_at > 364) {
-        pushedAt = "updated a long time ago"
-    }
-    
-    return (
-        <a href={props.html_url}>
-            <div className={'repository'}>
-                <h3>{props.name}</h3>
-                <p>{truncate(props.description, 150)}</p>
-                <p className={'updated'}><small>{pushedAt}</small></p>
-            </div>
-        </a>
-
-    )
-};
-
 // returns days between now and date supplied
 function calcDays(pushedAt: string) {
     const now = new Date(Date.now());
@@ -88,4 +61,6 @@ function calcDays(pushedAt: string) {
     return Math.ceil(Difference_In_Days);
 }
 
-export default WorkingOn;
+export {
+    WorkingOn
+}
