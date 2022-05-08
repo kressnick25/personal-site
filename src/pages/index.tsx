@@ -4,11 +4,25 @@ import { graphql } from "gatsby"
 import AboutMe from '../components/AboutMe';
 import WorkingOn from "../components/WorkingOn";
 
+export interface SiteMetadata {
+  title: string;
+  description: string;
+  siteUrl: string;
+}
 
+interface AppProps {
+  data: {
+    site: {
+      siteMetadata: SiteMetadata;
+    }
+  }
+}
 
-function App({data}) {
+function App({data}: AppProps) {
      return (
     <div className="App">
+        {/*
+        // @ts-ignore react-helmet has bugged typing */}
         <Helmet
           htmlAttributes={{
             lang: 'en',
