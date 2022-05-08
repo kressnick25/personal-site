@@ -1,8 +1,12 @@
 import React from 'react';
-import github from '../images/icons/github.png'
-import linkedin from '../images/icons/linkedin.png';
-import email from '../images/icons/gmail.png';
-export function ContactMe() {
+
+import { ContactIcon } from './ContactIcon';
+
+import github from 'images/icons/github.png'
+import linkedin from 'images/icons/linkedin.png'
+import email from 'images/icons/gmail.png'
+
+const ContactMe = () => {
     return (
         <div className={'contact'}>
             <div className={'contactIcons'}>
@@ -27,18 +31,6 @@ export function ContactMe() {
     )
 }
 
-interface ContactIconProps {
-    link: string;
-    icon: string;
-    serviceName: string;
+export {
+    ContactMe
 }
-
-const ContactIcon = (props: ContactIconProps) => {
-    return (
-        <a href={props.link}>
-            <img src={props.icon} alt={props.serviceName + 'logo icon'} /><br/>
-        </a>
-    )
-};
-
-export default ContactMe;

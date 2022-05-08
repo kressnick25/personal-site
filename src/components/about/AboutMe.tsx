@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import ContactMe from "./ContactMe";
+import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import { fadeInUp } from 'react-animations';
 
-export function AboutMe () {
+import { ContactMe } from "components/contact";
+import { Details } from './Details';
+
+const AboutMe = () => {
     // animations
     const fadeAnimation = keyframes`${fadeInUp}`;
     const FadeDiv = styled.div`
@@ -32,26 +34,6 @@ export function AboutMe () {
     )
 }
 
-interface User {
-    bio: string;
-    company: string;
+export {
+    AboutMe
 }
-
-function Details () {
-    const [user, setUser] = useState({} as User);
-    // get user data
-    useEffect(() => {
-        fetch("https://api.github.com/users/kressnick25")
-            .then((res) => {
-                if (res.ok) return res.json();
-                throw new Error("failed to fetch");
-            })
-            .then(res => setUser(res))
-            .catch(err => console.log(err.message));
-    }, []);
-
-    if (!user) return <p>Loading...</p>
-    return <p>{user.bio} at {user.company}</p>
-}
-
-export default AboutMe;
