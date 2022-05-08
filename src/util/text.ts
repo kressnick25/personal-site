@@ -1,4 +1,4 @@
-function truncate(str, maxLength=150) {
+function truncate(str: string, maxLength=150) {
     if (!str) return ""
     if (str.length > maxLength) {
         return str.substring(0, maxLength - 3) + "...";

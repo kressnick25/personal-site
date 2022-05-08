@@ -1,8 +1,18 @@
 import React, {useEffect, useState} from 'react';
 import { truncate } from '../util/text';
 
-export function WorkingOn(props) {
-    const [repos, setRepos] = useState(false);
+interface GithubRepo {
+    id: string;
+    archived: boolean;
+    description: string;
+    fork: boolean;
+    html_url: string;
+    name: string;
+    pushed_at: string;
+}
+
+export function WorkingOn() {
+    const [repos, setRepos] = useState([] as Array<GithubRepo>);
 
     useEffect(() => {
         fetch("https://api.github.com/users/kressnick25/repos?sort=pushed")
@@ -11,7 +21,7 @@ export function WorkingOn(props) {
                 throw new Error("failed to fetch");
             })
             .then(res => {
-                let filteredRepos = res.filter(repo => !repo.fork && !repo.archived); // no forked repos
+                let filteredRepos = res.filter((repo: GithubRepo) => !repo.fork && !repo.archived); // no forked repos
                 let slicedFilteredRepos = filteredRepos.slice(0, 8); // limit to top 8
                 setRepos(slicedFilteredRepos);
             })
@@ -23,8 +33,8 @@ export function WorkingOn(props) {
             <h2>What I've been working on recently on Github</h2>
             <hr/>
             <div className={'reposList'}>
-                {repos ?
-                    repos.map(repo =>
+                {repos.length !== 0 ?
+                    repos.map((repo: GithubRepo) =>
                         <Repository
                             key={repo.id}
                             name={repo.name}
@@ -40,7 +50,14 @@ export function WorkingOn(props) {
     )
 }
 
-const Repository = (props) => {
+interface RepositoryProps {
+    pushed_at: number,
+    html_url: string,
+    name: string,
+    description: string,
+}
+
+const Repository = (props: RepositoryProps) => {
     let pushedAt = `updated ${props.pushed_at} days ago`;
     if (props.pushed_at === 1) {
         pushedAt = "updated a day ago"
@@ -62,7 +79,7 @@ const Repository = (props) => {
 };
 
 // returns days between now and date supplied
-function calcDays(pushedAt) {
+function calcDays(pushedAt: string) {
     const now = new Date(Date.now());
     const pushTime = new Date(pushedAt);
     let Difference_In_Time = now.getTime() - pushTime.getTime();

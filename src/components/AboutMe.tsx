@@ -3,7 +3,7 @@ import ContactMe from "./ContactMe";
 import styled, { keyframes } from 'styled-components';
 import { fadeInUp } from 'react-animations';
 
-export function AboutMe (props) {
+export function AboutMe () {
     // animations
     const fadeAnimation = keyframes`${fadeInUp}`;
     const FadeDiv = styled.div`
@@ -32,8 +32,13 @@ export function AboutMe (props) {
     )
 }
 
-function Details (props) {
-    const [user, setUser] = useState(false);
+interface User {
+    bio: string;
+    company: string;
+}
+
+function Details () {
+    const [user, setUser] = useState({} as User);
     // get user data
     useEffect(() => {
         fetch("https://api.github.com/users/kressnick25")

@@ -23,5 +23,6 @@ module.exports = {
           icon: './src/images/logo192.png',      
         }
     },
+    `gatsby-plugin-typescript`
   ]
 };

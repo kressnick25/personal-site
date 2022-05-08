@@ -2,7 +2,7 @@ import React from 'react';
 import github from '../images/icons/github.png'
 import linkedin from '../images/icons/linkedin.png';
 import email from '../images/icons/gmail.png';
-export function ContactMe(props) {
+export function ContactMe() {
     return (
         <div className={'contact'}>
             <div className={'contactIcons'}>
@@ -27,8 +27,13 @@ export function ContactMe(props) {
     )
 }
 
+interface ContactIconProps {
+    link: string;
+    icon: string;
+    serviceName: string;
+}
 
-const ContactIcon = (props) => {
+const ContactIcon = (props: ContactIconProps) => {
     return (
         <a href={props.link}>
             <img src={props.icon} alt={props.serviceName + 'logo icon'} /><br/>
