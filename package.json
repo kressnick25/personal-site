@@ -54,5 +54,6 @@
     "typescript": "^4.6.4",
     "wait-on": "^6.0.1"
   },
-  "homepage": "https://nkress.dev"
+  "homepage": "https://nkress.dev",
+  "packageManager": "yarn@3.5.0"
 }
