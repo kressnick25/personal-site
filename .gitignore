@@ -25,3 +25,12 @@ yarn-error.log*
 public
 .cache
 build
+
+# yarn 2 ignores - do not commit the cache
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
