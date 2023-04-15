@@ -24,7 +24,7 @@ jobs:
         cache: 'npm'
         
     - name: Install yarn
-      run: npm install --no-save yarn
+      run: npm install --no-save --force yarn@3.5.0
     
     - name: Install dependencies
       run: npx yarn install
