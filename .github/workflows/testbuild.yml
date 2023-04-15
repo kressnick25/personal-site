@@ -10,7 +10,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.19.2]
+        node-version: [18.16.0]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -24,7 +24,7 @@ jobs:
         cache: 'npm'
         
     - name: Install yarn
-      run: npm install --no-save yarn
+      run: curl -o- -L https://yarnpkg.com/install.sh | bash
     
     - name: Install dependencies
       run: npx yarn install
