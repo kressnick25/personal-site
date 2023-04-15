@@ -24,7 +24,7 @@ jobs:
         cache: 'npm'
         
     - name: Install yarn
-      run: npm install --no-save --force yarn@3.5.0
+      run: curl -o- -L https://yarnpkg.com/install.sh | bash
     
     - name: Install dependencies
       run: npx yarn install
