@@ -22,9 +22,10 @@ const WorkingOn = () => {
                 throw new Error("failed to fetch");
             })
             .then(res => {
-                let filteredRepos = res.filter((repo: GithubRepo) => !repo.fork && !repo.archived); // no forked repos
-                let slicedFilteredRepos = filteredRepos.slice(0, 8); // limit to top 8
-                setRepos(slicedFilteredRepos);
+                let filteredRepos = res
+                    .filter((repo: GithubRepo) => !repo.archived)
+                    .slice(0, 8); // limit to top 8
+                setRepos(filteredRepos);
             })
             .catch(err => console.log(err.message));
     }, []);
